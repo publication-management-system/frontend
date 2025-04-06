@@ -1,0 +1,14 @@
+.authenticated-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: var(--spacing-lg);
+}
+
+.authenticated-layout nav {
+    flex: 0 1 auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+

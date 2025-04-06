@@ -1,0 +1,60 @@
+.settings-contents {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding-top: 148px;
+}
+
+.settings-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.profile-card {
+    flex: 1;
+    box-shadow: var(--shadow-sm);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color:hsla(289,50%,92%,1);
+    background-image:
+            radial-gradient(at 55% 58%, hsla(283,67%,90%,1) 0px, transparent 50%),
+            radial-gradient(at 0% 0%, hsla(279,47%,82%,1) 0px, transparent 50%);
+}
+
+.profile-card .profile-image {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.profile-card h1 {
+    margin: 0;
+
+}
+
+.edit-details-card {
+    display: flex;
+}
+
+.edit-details-card h1 {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    display: block;
+}
+
+.edit-details-card button {
+    background-color: white;
+    border: 1px solid var(--color-secondary);
+    color: black;
+    text-transform: capitalize;
+}
+
+.edit-details-card button:hover {
+    color: white;
+    text-transform: capitalize;
+}

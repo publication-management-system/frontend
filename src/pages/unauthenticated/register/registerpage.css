@@ -1,0 +1,17 @@
+.gradient-background {
+    background-color: hsla(157, 0%, 100%, 1);
+    background-image: radial-gradient(at 7% 1%, hsla(278, 44%, 95%, 1) 0px, transparent 50%),
+    radial-gradient(at 64% 77%, hsla(281, 41%, 88%, 1) 0px, transparent 50%),
+    radial-gradient(at 63% 40%, hsla(231, 51%, 84%, 1) 0px, transparent 50%);
+}
+
+.register-card-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hidden-step-button {
+    display: none;
+}

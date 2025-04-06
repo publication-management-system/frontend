@@ -1,0 +1,37 @@
+.landing-section {
+    flex: 1 1 auto;
+    width: auto;
+    min-height: 100vh;
+}
+
+.centered-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.landing-page nav {
+    flex: 0 1 auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.landing-section h1 {
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.gradient-background {
+    background-color: hsla(157, 0%, 100%, 1);
+    background-image: radial-gradient(at 7% 1%, hsla(278, 44%, 95%, 1) 0px, transparent 50%),
+    radial-gradient(at 64% 77%, hsla(281, 41%, 88%, 1) 0px, transparent 50%),
+    radial-gradient(at 63% 40%, hsla(231, 51%, 84%, 1) 0px, transparent 50%);
+}
+
+.image-section-one {
+    width: 50%;
+}

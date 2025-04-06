@@ -1,0 +1,29 @@
+.dropdown {
+    position: relative;
+}
+
+.dd-elements {
+    position: absolute;
+    background-color: var(--color-background);
+    border: 1px solid #e1e4e8;
+    border-radius: var(--border-radius-md);
+    top: 115%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 120px;
+}
+
+.dd-elements *  {
+    cursor: pointer;
+    padding: var(--spacing-md);
+    margin: 0;
+}
+
+.dd-elements *:hover {
+    background-color: #e1e4e8;
+}
+
+.dd-elements a:hover {
+    transform: none !important;
+}

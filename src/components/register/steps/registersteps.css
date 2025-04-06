@@ -1,0 +1,50 @@
+.register-steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl)
+}
+
+.register-steps-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.register-steps-header span {
+    background-color: #afb2b6;
+    color: white;
+    padding: var(--spacing-sm);
+    font-weight: 700;
+    border-radius: 200px;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+}
+
+.step-active {
+    background-color: var(--color-primary) !important;
+}
+
+.step-view {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+}
+
+.step-view h1 {
+    font-size: var(--font-size-base);
+}
+
+.step-hidden {
+    display: none;
+}
+
+.step-view .input-field {
+    width: 100%;
+}

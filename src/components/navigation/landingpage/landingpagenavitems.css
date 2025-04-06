@@ -1,0 +1,4 @@
+.landing-page-nav {
+    display: flex;
+    gap: var(--spacing-lg);
+}
