@@ -1,0 +1,43 @@
+import React, {useEffect, useState} from "react";
+import {Column, Table} from "../table/table.tsx";
+import {Button} from "../button/button.tsx";
+import {Card} from "../card/card.tsx";
+import {ScrapingSession} from "../../data/scraping.ts";
+import {authenticatedClient} from "../../data/client.ts";
+
+interface ScrapingCardProps {
+    institutionId: string;
+    onError(error: string): void;
+}
+
+export const ScrapingCard = (props: ScrapingCardProps): React.JSX.Element => {
+
+    const columns: Column<ScrapingSession>[] = [
+        { header: "First Name", accessor: "lastName" },
+        { header: "Last Name", accessor: "firstName" },
+        { header: "Profiler status", accessor: "status" },
+    ];
+
+    const [sessions, setSessions] = useState<ScrapingSession[]>([]);
+
+
+
+    useEffect(() => {
+        const fetchScrapingSessions = async () => {
+            await authenticatedClient.get(`/api/scraping-sessions/institution/${props.institutionId}`)
+                .then(response => setSessions(response.data))
+                .catch((error) => props.onError(error));
+        }
+
+        fetchScrapingSessions();
+    }, []);
+
+    return (
+        <Card>
+            <h1>My profiling sessions</h1>
+            <Table columns={columns} data={sessions} actions={(session) => (
+                <Button onClick={() => alert(session.id)}>View</Button>
+            )}/>
+        </Card>
+    )
+}

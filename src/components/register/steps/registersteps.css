@@ -16,12 +16,15 @@
 .register-steps-header span {
     background-color: #afb2b6;
     color: white;
-    padding: var(--spacing-sm);
     font-weight: 700;
     border-radius: 200px;
-    width: 1rem;
-    height: 1rem;
+    width: 24px;
+    height: 24px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-md);
 }
 
 .step-active {

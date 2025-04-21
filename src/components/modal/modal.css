@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--spacing-lg);
 }
 
 .modal-header p {
@@ -38,13 +39,16 @@
     font-size: var(--font-size-base);
     font-weight: 700;
     cursor: pointer;
-    padding: 0.35rem;
+    padding: 0.5rem;
     border-radius: 50%;
     border: 1px solid var(--color-secondary);
-    width: 1rem;
-    height: 1rem;
+    width: 24px;
+    height: 24px;
     line-height: 1rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-header span:hover {

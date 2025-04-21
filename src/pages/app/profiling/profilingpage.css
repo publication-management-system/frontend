@@ -1,0 +1,12 @@
+.profilingpage-contents {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding-top: 148px;
+}
+
+.profilingpage-contents-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
