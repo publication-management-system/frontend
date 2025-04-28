@@ -7,6 +7,8 @@ import {getUserInfo} from "../../../data/accesstokenutil.ts";
 import './profilingpage.css'
 import {ScrapingCard} from "../../../components/institutionprofiling/scrapingcard.tsx";
 import {Toast, ToastSettings} from "../../../components/toast/toast.tsx";
+import {Modal, ModalSettings} from "../../../components/modal/modal.tsx";
+import {ScrapeAuthorProfile} from "../../../components/profile/scrapeAuthorProfile.tsx";
 
 export const ProfilingPage = (): React.JSX.Element => {
 
@@ -14,6 +16,11 @@ export const ProfilingPage = (): React.JSX.Element => {
     const [toastSettings, setToastSettings] = useState<ToastSettings>({open: false, message: '', type: "success"});
 
     const institutionId = getUserInfo()?.institutionId;
+    const [modalSettings, setModalSettings] = useState<ModalSettings>({
+        bodyComponent: undefined,
+        open: false,
+        title: ""
+    });
 
     const loadCurrentUser = async (): Promise<void> => {
         const resp = await authenticatedClient.get(`/api/users/${getUserInfo().userId}`)
@@ -30,6 +37,14 @@ export const ProfilingPage = (): React.JSX.Element => {
         loadCurrentUser();
     }, [])
 
+    function openModalScrapeAuthor() {
+        setModalSettings({
+            open: true,
+            title: 'Scrape author profile',
+            bodyComponent: (<ScrapeAuthorProfile/>)
+        });
+    }
+
     return (
         <>
             <AuthenticatedLayout>
@@ -37,7 +52,7 @@ export const ProfilingPage = (): React.JSX.Element => {
                 <div className="profilingpage-contents">
                     <div className="profilingpage-contents-row">
                         <div className="content">
-                            <ScrapingCard institutionId={institutionId} onError={onScrapingCardError} />
+                            <ScrapingCard institutionId={institutionId} onError={onScrapingCardError} onModalOpen={openModalScrapeAuthor} />
                         </div>
                     </div>
                 </div>
@@ -48,6 +63,11 @@ export const ProfilingPage = (): React.JSX.Element => {
                    }}
                    message={toastSettings.message}
                    type={toastSettings.type}
+            />
+            <Modal title={modalSettings.title}
+                   open={modalSettings.open}
+                   children={modalSettings.bodyComponent}
+                   onClose={() => setModalSettings({...modalSettings, open: false})}
             />
         </>
     )

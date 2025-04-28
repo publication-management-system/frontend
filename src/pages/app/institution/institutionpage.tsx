@@ -10,6 +10,7 @@ import {InviteUser} from "../../../components/invitation/inviteuser.tsx";
 import './institutionpage.css';
 import {Tab, Tabs} from "../../../components/tabs/tabs.tsx";
 import {InstitutionUsersTab} from "../../../components/institution/institutionuserstab.tsx";
+import {InstitutionInvitationTab} from "../../../components/institution/institutioninvitationtab.tsx";
 
 
 export const InstitutionPage = (): React.JSX.Element => {
@@ -56,7 +57,7 @@ export const InstitutionPage = (): React.JSX.Element => {
                             <InstitutionUsersTab onModalOpen={openModalInviteUsers} onError={onInstUserError}/>
                         </Tab>
                         <Tab label={'Invitations'}>
-                            <p>Todo user invitation tab component</p>
+                            <InstitutionInvitationTab onError={onInstUserError} />
                         </Tab>
                     </Tabs>
                 </div>

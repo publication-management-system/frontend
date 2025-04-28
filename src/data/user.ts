@@ -37,3 +37,14 @@ export interface InstitutionData {
     institution?: Institution,
     loadingInstitution: boolean
 }
+
+export interface Invitation {
+    id: string,
+    link: string,
+    wasTaken: boolean;
+}
+
+export interface InvitationData {
+    invitation?: Invitation,
+    loadingInvitation: boolean
+}

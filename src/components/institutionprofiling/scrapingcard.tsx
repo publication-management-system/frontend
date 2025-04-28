@@ -7,6 +7,7 @@ import {authenticatedClient} from "../../data/client.ts";
 
 interface ScrapingCardProps {
     institutionId: string;
+    onModalOpen: () => void;
     onError(error: string): void;
 }
 
@@ -34,10 +35,14 @@ export const ScrapingCard = (props: ScrapingCardProps): React.JSX.Element => {
 
     return (
         <Card>
+            <div>
+                <Button onClick={props.onModalOpen}>SCRAPE AUTHOR</Button>
+            </div>
             <h1>My profiling sessions</h1>
             <Table columns={columns} data={sessions} actions={(session) => (
                 <Button onClick={() => alert(session.id)}>View</Button>
             )}/>
         </Card>
+
     )
 }
