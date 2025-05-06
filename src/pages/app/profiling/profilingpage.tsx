@@ -52,7 +52,9 @@ export const ProfilingPage = (): React.JSX.Element => {
                 <div className="profilingpage-contents">
                     <div className="profilingpage-contents-row">
                         <div className="content">
-                            <ScrapingCard institutionId={institutionId} onError={onScrapingCardError} onModalOpen={openModalScrapeAuthor} />
+                            <ScrapingCard institutionId={institutionId}
+                                          onError={onScrapingCardError}
+                                          onModalOpen={openModalScrapeAuthor} />
                         </div>
                     </div>
                 </div>

@@ -21,15 +21,13 @@ export const ScrapingCard = (props: ScrapingCardProps): React.JSX.Element => {
 
     const [sessions, setSessions] = useState<ScrapingSession[]>([]);
 
-
-
     useEffect(() => {
         const fetchScrapingSessions = async () => {
             await authenticatedClient.get(`/api/scraping-sessions/institution/${props.institutionId}`)
                 .then(response => setSessions(response.data))
                 .catch((error) => props.onError(error));
+            console.log('fetchScrapingSessions');
         }
-
         fetchScrapingSessions();
     }, []);
 

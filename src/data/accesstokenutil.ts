@@ -4,9 +4,10 @@ interface AccessTokenData {
     accessToken: string,
     userId: string,
     institutionId: string,
+    name: string,
 }
 
-type AuthTokenPayload = JwtPayload & { institutionId: string } | undefined;
+type AuthTokenPayload = JwtPayload & { institutionId: string, name: string } | undefined;
 
 export const getUserInfo = (): AccessTokenData => {
 
@@ -23,5 +24,6 @@ export const getUserInfo = (): AccessTokenData => {
         accessToken: localStorage.getItem("access_token") ?? '',
         userId: getPayload()?.sub ?? '',
         institutionId: getPayload()?.institutionId ?? '',
+        name: getPayload()?.name ?? ''
     }
 }
