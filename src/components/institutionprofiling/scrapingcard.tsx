@@ -4,6 +4,7 @@ import {Button} from "../button/button.tsx";
 import {Card} from "../card/card.tsx";
 import {ScrapingSession} from "../../data/scraping.ts";
 import {authenticatedClient} from "../../data/client.ts";
+import {useNavigate} from "react-router-dom";
 
 interface ScrapingCardProps {
     institutionId: string;
@@ -20,6 +21,8 @@ export const ScrapingCard = (props: ScrapingCardProps): React.JSX.Element => {
     ];
 
     const [sessions, setSessions] = useState<ScrapingSession[]>([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchScrapingSessions = async () => {
@@ -38,9 +41,8 @@ export const ScrapingCard = (props: ScrapingCardProps): React.JSX.Element => {
             </div>
             <h1>My profiling sessions</h1>
             <Table columns={columns} data={sessions} actions={(session) => (
-                <Button onClick={() => alert(session.id)}>View</Button>
+                <Button onClick={() => navigate(`/app/profiling/sessions/${session.id}`)}>View</Button>
             )}/>
         </Card>
-
     )
 }

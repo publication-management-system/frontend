@@ -8,6 +8,7 @@ import {LogoutPage} from "./pages/app/logout/logoutpage.tsx";
 import {SettingsPage} from "./pages/app/settings/settingspage.tsx";
 import {ProfilingPage} from "./pages/app/profiling/profilingpage.tsx";
 import {InstitutionPage} from "./pages/app/institution/institutionpage.tsx";
+import {SessionPage} from "./pages/app/profiling/session/sessionpage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path:"/app/institution",
                 element: <InstitutionPage/>
+            },
+            {
+                path:"/app/profiling/sessions/:sessionId",
+                element: <SessionPage/>
             },
             {
                 path: "/app/logout",

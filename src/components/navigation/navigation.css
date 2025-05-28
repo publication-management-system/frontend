@@ -7,6 +7,7 @@ nav {
     box-shadow: var(--shadow-sm);
     align-items: center;
     justify-items: center;
+    z-index: 9999;
 }
 
 nav .content {

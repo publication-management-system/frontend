@@ -1,18 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {AuthenticatedLayout} from "../../../layouts/authenticatedlayout/authenticatedlayout.tsx";
 import {AuthenticatedNavigation} from "../../../components/navigation/authenticated/authenticatednavigation.tsx";
-import {UserData} from "../../../data/user.ts";
-import {authenticatedClient} from "../../../data/client.ts";
 import {getUserInfo} from "../../../data/accesstokenutil.ts";
 import './profilingpage.css'
 import {ScrapingCard} from "../../../components/institutionprofiling/scrapingcard.tsx";
 import {Toast, ToastSettings} from "../../../components/toast/toast.tsx";
 import {Modal, ModalSettings} from "../../../components/modal/modal.tsx";
 import {ScrapeAuthorProfile} from "../../../components/profile/scrapeAuthorProfile.tsx";
+import {Tab, Tabs} from "../../../components/tabs/tabs.tsx";
+import ProjectsCard from "../../../components/projects/projectscard.tsx";
+import {CreateProjectForm} from "../../../components/projects/createprojectform/createprojectform.tsx";
 
 export const ProfilingPage = (): React.JSX.Element => {
 
-    const [currentUser, setCurrentUser] = useState<UserData>({loadingUser: true, user: undefined});
     const [toastSettings, setToastSettings] = useState<ToastSettings>({open: false, message: '', type: "success"});
 
     const institutionId = getUserInfo()?.institutionId;
@@ -22,41 +22,56 @@ export const ProfilingPage = (): React.JSX.Element => {
         title: ""
     });
 
-    const loadCurrentUser = async (): Promise<void> => {
-        const resp = await authenticatedClient.get(`/api/users/${getUserInfo().userId}`)
-            .then(response => response.data);
-
-        setCurrentUser({loadingUser: false, user: {...resp}});
-    }
-
     const onScrapingCardError = (error: string) => {
         setToastSettings({...toastSettings, open: true, message: error, type: "error"});
     }
 
-    useEffect(() => {
-        loadCurrentUser();
-    }, [])
+    const onProjectLoadError = (error: string) => {
+        setToastSettings({...toastSettings, open: true, message: error, type: "error"});
+    }
 
-    function openModalScrapeAuthor() {
+    function openModal(title: string, bodyComponent: React.ReactNode) {
         setModalSettings({
             open: true,
-            title: 'Scrape author profile',
-            bodyComponent: (<ScrapeAuthorProfile/>)
+            title: title,
+            bodyComponent: bodyComponent
         });
     }
 
     return (
         <>
             <AuthenticatedLayout>
-                <AuthenticatedNavigation loading={currentUser.loadingUser} user={currentUser.user} />
-                <div className="profilingpage-contents">
-                    <div className="profilingpage-contents-row">
-                        <div className="content">
-                            <ScrapingCard institutionId={institutionId}
-                                          onError={onScrapingCardError}
-                                          onModalOpen={openModalScrapeAuthor} />
-                        </div>
-                    </div>
+                <AuthenticatedNavigation/>
+                <div className={'profilingpage-contents content'} style={{paddingTop: '10%'}}>
+                    <Tabs>
+                        <Tab label={'Author scraping'}>
+                            <>
+                                <div className="profilingpage-contents">
+                                    <div className="profilingpage-contents-row">
+                                        <div className="content">
+                                            <ScrapingCard institutionId={institutionId}
+                                                          onError={onScrapingCardError}
+                                                          onModalOpen={() => openModal('Scrape author', <ScrapeAuthorProfile/>)}/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        </Tab>
+                        <Tab label={'My Projects'}>
+                            <>
+                                <div className="profilingpage-contents">
+                                    <div className="profilingpage-contents-row">
+                                        <div className="content">
+                                            <ProjectsCard userId={getUserInfo()?.userId}
+                                                          onError={onProjectLoadError}
+                                                          onModalOpen={() => openModal('Add new Project', <CreateProjectForm/>)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        </Tab>
+                    </Tabs>
                 </div>
             </AuthenticatedLayout>
             <Toast open={toastSettings.open}

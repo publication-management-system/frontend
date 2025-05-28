@@ -1,0 +1,11 @@
+.author-scraped-profile {
+    width: 100%;
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.author-scraped-profile img {
+    border-radius: var(--border-radius-md);
+    min-width: 200px;
+    box-shadow: var(--shadow-md);
+}

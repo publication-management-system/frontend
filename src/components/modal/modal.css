@@ -17,8 +17,8 @@
     flex-direction: column;
     padding: var(--spacing-lg);
     background-color: white;
-    min-width: 300px;
-    min-height: 120px;
+    min-width: 600px;
+    min-height: 240px;
     gap: var(--spacing-lg);
     border-radius: var(--border-radius-md);
 }
@@ -33,6 +33,21 @@
 .modal-header p {
     font-size: var(--font-size-base);
     font-weight: 700;
+}
+
+.modal-header svg {
+
+    cursor: pointer;
+    width: 32px !important;
+    height: 32px !important;
+    padding: var(--spacing-xs);
+}
+
+.modal-header svg:hover {
+    background: var(--color-primary);
+    fill: white;
+    font-weight: bold;
+    border-radius: 50%;
 }
 
 .modal-header span {

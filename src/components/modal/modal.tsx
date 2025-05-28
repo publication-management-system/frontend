@@ -1,5 +1,6 @@
 import React from "react";
 import './modal.css'
+import { HiXMark } from "react-icons/hi2";
 
 interface ModalProps {
     children?: React.ReactNode,
@@ -21,7 +22,7 @@ export const Modal = (props: ModalProps) : React.JSX.Element => {
             <div className={'modal-content'}>
                 <div className={'modal-header'}>
                     <p>{props.title ?? ''}</p>
-                    <span className={'modal-close-button'} onClick={props.onClose}>X</span>
+                    <HiXMark onClick={props.onClose} />
                 </div>
                 <div className={'modal-body'}>
                     {props.children}

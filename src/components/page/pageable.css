@@ -1,0 +1,31 @@
+.pageable {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+}
+
+.pageable .page-button {
+    font-weight: bold;
+    color: var(--color-primary);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.pageable .page-count {
+    color: #232b39;
+    font-size: var(--font-size-base);
+}
+
+.pageable .page-button:hover {
+    border-bottom: 1px solid var(--color-primary) !important;
+}
+
+.page-button-disabled {
+    color: #c6c9cc !important;
+}
+
+.pageable .page-button.page-button-disabled:hover  {
+    border: none !important;
+}

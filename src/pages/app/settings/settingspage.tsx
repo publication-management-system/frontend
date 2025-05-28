@@ -81,9 +81,9 @@ export const SettingsPage = (): React.JSX.Element => {
     return (
         <>
             <AuthenticatedLayout>
-                <AuthenticatedNavigation loading={currentUser.loadingUser} user={currentUser.user}/>
+                <AuthenticatedNavigation />
 
-                <div className={'settings-contents'}>
+                <div className={'settings-contents'} style={{paddingTop: '10%'}}>
                     <div className={'settings-row'}>
                         <div className={'content'}>
                             <Card className="profile-card">

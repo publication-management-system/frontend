@@ -1,9 +1,9 @@
-.profilingpage-contents {
+.sessionpage-contents {
     display: flex;
     flex-direction: column;
 }
 
-.profilingpage-contents-row {
+.sessionpage-contents-row {
     display: flex;
     flex-direction: column;
 }
