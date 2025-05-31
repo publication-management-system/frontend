@@ -1,17 +1,13 @@
-import React, {useEffect, useState} from "react";
-import {UserData} from "../../../../data/user.ts";
+import React, {useState} from "react";
 import {Toast, ToastSettings} from "../../../../components/toast/toast.tsx";
 import {getUserInfo} from "../../../../data/accesstokenutil.ts";
 import {Modal, ModalSettings} from "../../../../components/modal/modal.tsx";
-import {authenticatedClient} from "../../../../data/client.ts";
 import {ScrapeAuthorProfile} from "../../../../components/profile/scrapeAuthorProfile.tsx";
 import {AuthenticatedLayout} from "../../../../layouts/authenticatedlayout/authenticatedlayout.tsx";
 import {AuthenticatedNavigation} from "../../../../components/navigation/authenticated/authenticatednavigation.tsx";
 import {ScrapingCard} from "../../../../components/institutionprofiling/scrapingcard.tsx";
 
 export const ProfilingPage = (): React.JSX.Element => {
-
-    const [currentUser, setCurrentUser] = useState<UserData>({loadingUser: true, user: undefined});
     const [toastSettings, setToastSettings] = useState<ToastSettings>({open: false, message: '', type: "success"});
 
     const institutionId = getUserInfo()?.institutionId;
@@ -21,20 +17,9 @@ export const ProfilingPage = (): React.JSX.Element => {
         title: ""
     });
 
-    const loadCurrentUser = async (): Promise<void> => {
-        const resp = await authenticatedClient.get(`/api/users/${getUserInfo().userId}`)
-            .then(response => response.data);
-
-        setCurrentUser({loadingUser: false, user: {...resp}});
-    }
-
     const onScrapingCardError = (error: string) => {
         setToastSettings({...toastSettings, open: true, message: error, type: "error"});
     }
-
-    useEffect(() => {
-        loadCurrentUser();
-    }, [])
 
     function openModalScrapeAuthor() {
         setModalSettings({
@@ -47,7 +32,7 @@ export const ProfilingPage = (): React.JSX.Element => {
     return (
         <>
             <AuthenticatedLayout>
-                <AuthenticatedNavigation loading={currentUser.loadingUser} user={currentUser.user}/>
+                <AuthenticatedNavigation />
                 <div className="profilingpage-contents">
                     <div className="profilingpage-contents-row">
                         <div className="content">

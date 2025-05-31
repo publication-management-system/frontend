@@ -64,6 +64,17 @@ export const SessionPage = (): React.JSX.Element => {
                             <>
                                 <Card>
                                     <h1>DBLP results {session?.firstName} {session?.lastName}</h1>
+                                    {
+                                        sessionId ? (
+                                            <AuthorScrapedProfile sessionId={session?.id ?? ''}
+                                                                  dataSource={'dblp'}
+                                                                  onError={() => {}} />
+                                        ) : (
+                                            <LoadingAuthorScrapedProfile />
+                                        )
+                                    }
+
+                                    <AuthorDocumentsProfile sessionId={sessionId ?? ''} dataSource={'dblp'} onError={() => {}}  />
                                 </Card>
                             </>
                         </Tab>

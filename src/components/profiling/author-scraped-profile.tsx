@@ -11,7 +11,11 @@ interface AuthorScrapedProfileProps {
 
 export const AuthorScrapedProfile = (props: AuthorScrapedProfileProps): React.JSX.Element => {
 
-    const [authorProfile, setAuthorProfile] = useState<PagedScrapedEntity>({loading: true, entities: []});
+    const [authorProfile, setAuthorProfile] = useState<PagedScrapedEntity>({
+        pageNumber: 0,
+        totalElements: 0,
+        totalPages: 0,
+        loading: true, entities: []});
 
     useEffect(() => {
         const fetchScrapedProfile = async () => {
@@ -20,8 +24,11 @@ export const AuthorScrapedProfile = (props: AuthorScrapedProfileProps): React.JS
             }
             await authenticatedClient.get(`/api/scraped-entities/${props.sessionId}?source=${props.dataSource.toUpperCase()}&entityType=AUTHOR&pageNumber=0&pageSize=1`)
                 .then(response => setAuthorProfile({
+                    pageNumber: response?.data?.pageable?.pageNumber ?? 0,
+                    totalElements: response?.data?.totalElements ?? 0,
+                    totalPages: response?.data?.totalPages ?? 0,
                     loading: false,
-                    entities: response.data.content,
+                    entities: response.data.content
                 }))
                 .catch((error) => props.onError(error));
         }
