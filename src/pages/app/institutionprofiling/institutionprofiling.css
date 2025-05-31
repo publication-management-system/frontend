@@ -1,9 +1,9 @@
-.profilingpage-contents {
+.institution-profiling-page-contents {
     display: flex;
     flex-direction: column;
 }
 
-.profilingpage-contents-row {
+.institution-profiling-page-contents-row {
     display: flex;
     flex-direction: column;
 }

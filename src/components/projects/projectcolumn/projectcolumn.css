@@ -1,0 +1,91 @@
+.project-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    flex-grow: 1;
+    background: white;
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border: 1px solid #afb2b6;
+}
+
+.project-column h2 {
+    font-size: var(--font-size-sm);
+    line-height: 0;
+}
+
+.project-column p {
+    font-size: var(--font-size-sm);
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    min-height: 300px !important;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid var(--color-secondary);
+    background: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    justify-items: center;
+    align-items: center;
+}
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    padding: var(--spacing-sm);
+    border-right: 1px dotted var(--color-secondary);
+}
+
+.task-actions {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+}
+
+.task-actions svg {
+    cursor: pointer;
+    width: 32px !important;
+    height: 32px !important;
+    padding: var(--spacing-xs);
+    fill: var(--color-secondary);
+}
+
+.task-actions svg:hover {
+    background: var(--color-secondary);
+    fill: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.create-task-card {
+    display: flex;
+    flex-direction: column;
+    border: 2px dashed var(--color-secondary);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    font-weight: 700;
+}
+
+.create-task-card:hover {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.task-grabbing {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}

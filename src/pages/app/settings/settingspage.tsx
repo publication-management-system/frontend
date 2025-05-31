@@ -83,7 +83,7 @@ export const SettingsPage = (): React.JSX.Element => {
             <AuthenticatedLayout>
                 <AuthenticatedNavigation />
 
-                <div className={'settings-contents'} style={{paddingTop: '10%'}}>
+                <div className={'settings-contents'} style={{paddingTop: '8%'}}>
                     <div className={'settings-row'}>
                         <div className={'content'}>
                             <Card className="profile-card">

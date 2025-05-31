@@ -34,7 +34,7 @@ export const InstitutionPage = (): React.JSX.Element => {
         <>
             <AuthenticatedLayout>
                 <AuthenticatedNavigation />
-                <div className={'institution-page-contents content'} style={{paddingTop: '10%'}}>
+                <div className={'institution-page-contents content'} style={{paddingTop: '8%'}}>
                     <Tabs>
                         <Tab label={'Institution Overview'}>
                             <InstitutionUsersTab onModalOpen={openModalInviteUsers} onError={onInstUserError}/>

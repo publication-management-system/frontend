@@ -6,9 +6,10 @@ import {RegisterPage} from "./pages/unauthenticated/register/registerpage.tsx";
 import {DashboardPage} from "./pages/app/dashboard/dashboardpage.tsx";
 import {LogoutPage} from "./pages/app/logout/logoutpage.tsx";
 import {SettingsPage} from "./pages/app/settings/settingspage.tsx";
-import {ProfilingPage} from "./pages/app/profiling/profilingpage.tsx";
+import {InstitutionProfiling} from "./pages/app/institutionprofiling/institutionprofiling.tsx";
 import {InstitutionPage} from "./pages/app/institution/institutionpage.tsx";
-import {SessionPage} from "./pages/app/profiling/session/sessionpage.tsx";
+import {SessionPage} from "./pages/app/session/sessionpage.tsx";
+import {ProjectPage} from "./pages/app/projects/projectpage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -35,16 +36,20 @@ export const router = createBrowserRouter([
                 element: <SettingsPage/>
             },
             {
-                path: '/app/profiling',
-                element: <ProfilingPage/>
+                path: '/app/institution-profiling',
+                element: <InstitutionProfiling/>
             },
             {
                 path:"/app/institution",
                 element: <InstitutionPage/>
             },
             {
-                path:"/app/profiling/sessions/:sessionId",
+                path:"/app/institution-profiling/sessions/:sessionId",
                 element: <SessionPage/>
+            },
+            {
+                path:"/app/institution-profiling/projects/:projectId",
+                element: <ProjectPage/>
             },
             {
                 path: "/app/logout",

@@ -36,6 +36,20 @@ const DocumentProfileItem = ({doc}: {doc: DocumentPayload}): React.JSX.Element =
                 <span className={'author-document-item-info-label'}>Publisher</span>
                 <p className={'author-document-item-info-data'}>{doc.publisher ?? '-'}</p>
             </div>
+            <div className={'author-document-item-info'}>
+                <span className={'author-document-item-info-label'}>Links</span>
+                <ul>
+                    {
+                        doc.links.map((item: string, i) => {
+                            return (
+                                <li key={i}>
+                                    <a href={item} key={i}>{item}</a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
 
         </div>
     )

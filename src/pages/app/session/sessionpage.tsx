@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {Toast, ToastSettings} from "../../../../components/toast/toast.tsx";
-import {Modal, ModalSettings} from "../../../../components/modal/modal.tsx";
-import {AuthenticatedLayout} from "../../../../layouts/authenticatedlayout/authenticatedlayout.tsx";
-import {AuthenticatedNavigation} from "../../../../components/navigation/authenticated/authenticatednavigation.tsx";
-import {authenticatedClient} from "../../../../data/client.ts";
+import {Toast, ToastSettings} from "../../../components/toast/toast.tsx";
+import {Modal, ModalSettings} from "../../../components/modal/modal.tsx";
+import {AuthenticatedLayout} from "../../../layouts/authenticatedlayout/authenticatedlayout.tsx";
+import {AuthenticatedNavigation} from "../../../components/navigation/authenticated/authenticatednavigation.tsx";
+import {authenticatedClient} from "../../../data/client.ts";
 import {useParams} from "react-router-dom";
-import {ScrapingSession} from "../../../../data/scraping.ts";
-import {Card} from "../../../../components/card/card.tsx";
-import {Tab, Tabs} from "../../../../components/tabs/tabs.tsx";
+import {ScrapingSession} from "../../../data/scraping.ts";
+import {Card} from "../../../components/card/card.tsx";
+import {Tab, Tabs} from "../../../components/tabs/tabs.tsx";
 import {
     AuthorScrapedProfile,
     LoadingAuthorScrapedProfile
-} from "../../../../components/profiling/author-scraped-profile.tsx";
-import {AuthorDocumentsProfile} from "../../../../components/profiling/author-documents-profile.tsx";
+} from "../../../components/profiling/author-scraped-profile.tsx";
+import {AuthorDocumentsProfile} from "../../../components/profiling/author-documents-profile.tsx";
 
 
 export const SessionPage = (): React.JSX.Element => {
@@ -40,7 +40,7 @@ export const SessionPage = (): React.JSX.Element => {
         <>
             <AuthenticatedLayout>
                 <AuthenticatedNavigation/>
-                <div className={'sessionpage-contents content'} style={{paddingTop: '10%'}}>
+                <div className={'sessionpage-contents content'} style={{paddingTop: '8%'}}>
                     <Tabs>
                         <Tab label={'Google scholar'}>
                             <>

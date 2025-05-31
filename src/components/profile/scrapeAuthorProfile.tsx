@@ -4,8 +4,14 @@ import {authenticatedClient} from "../../data/client.ts";
 import {Form} from "../form/form.tsx";
 import {Input} from "../input/input.tsx";
 import {getUserInfo} from "../../data/accesstokenutil.ts";
+import {ScrapingSession} from "../../data/scraping.ts";
 
-export const ScrapeAuthorProfile = () : React.JSX.Element => {
+interface Props {
+    onSuccess: (scrapingSession: ScrapingSession) => void;
+    onError(error: string): void;
+}
+
+export const ScrapeAuthorProfile = ({onSuccess, onError} : Props) : React.JSX.Element => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const institutionId = getUserInfo().institutionId;
@@ -14,8 +20,19 @@ export const ScrapeAuthorProfile = () : React.JSX.Element => {
 
     const scrapeProfile = async () => {
         await authenticatedClient.post("/api/scraping-sessions", {firstName, lastName, institutionId, userId, userName} )
-            .then(response => response.data)
-            .catch(err => console.log(err));
+            .then(response => {
+                onSuccess({
+                    id: response?.data?.sessionId,
+                    institutionId: institutionId,
+                    firstName: firstName,
+                    lastName: lastName,
+                    status: "IN_PROGRESS",
+                    userId: userId
+                })
+            })
+            .catch(err => {
+                onError(err);
+            });
     }
 
     return (

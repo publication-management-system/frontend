@@ -7,7 +7,7 @@ export const AuthenticatedNavItems = (): React.JSX.Element => {
         <div className={'authenticated-nav-items'}>
             <Link to={'/app/dashboard'}>Dashboard</Link>
             <Link to={'/app/institution'}>My Institution</Link>
-            <Link to={'/app/profiling'}>Institution Profiling</Link>
+            <Link to={'/app/institution-profiling'}>Institution Profiling</Link>
         </div>
     )
 }

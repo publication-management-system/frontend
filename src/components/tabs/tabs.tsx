@@ -21,13 +21,13 @@ export function Tabs(props: TabsProps) {
 
     const tabs = React.Children.toArray(props.children)
         .filter((child) => React.isValidElement(child) && child.type === Tab);
-    console.log(tabs);
+
     return (
         <div className="tabs-container">
             <div className="tab-buttons">
                 {tabs.map((tab, index) => (
                     <button key={index} onClick={() => setActiveTabIndex(index)} className={`${index === activeTabIndex ? 'active' : ''}`}>
-                        <span>{tab.props.label ?? 'SSS'}</span>
+                        <span>{tab?.props?.label ?? 'SSS'}</span>
                     </button>
                 ))}
             </div>

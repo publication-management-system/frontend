@@ -9,7 +9,7 @@ interface PageableProps {
 
 export const Pageable = ({pageNumber, totalPages, onPageChange}: PageableProps): React.JSX.Element => {
 
-    const isLastPage = pageNumber === (totalPages - 1);
+    const isLastPage = pageNumber === (totalPages - 1) || totalPages === 0;
     const isFirstPage = pageNumber === 0;
 
     const prevPage = () => {
@@ -31,7 +31,11 @@ export const Pageable = ({pageNumber, totalPages, onPageChange}: PageableProps):
             </div>
 
             <div className={'page-count'}>
-                <span>{pageNumber + 1}/{totalPages}</span>
+                {
+                    totalPages > 0 && <span>{pageNumber + 1}/{totalPages}</span>
+                }
+
+                {totalPages === 0 && <span>No pages found</span>}
             </div>
 
             <div className={`page-button ${isLastPage ? 'page-button-disabled':''}`} onClick={nextPage}>

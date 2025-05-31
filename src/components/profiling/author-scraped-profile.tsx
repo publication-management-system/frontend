@@ -40,7 +40,7 @@ export const AuthorScrapedProfile = (props: AuthorScrapedProfileProps): React.JS
     return (
         authorProfile.loading ? <LoadingAuthorScrapedProfile /> : (
             <div className="author-scraped-profile">
-                <img src={authorProfilePayload?.imageUrl ?? ''} alt={'Profile image'} />
+                <img src={authorProfilePayload?.imageUrl ?? '/missing_image.png'} alt={'Profile image'} />
                 <div>
                     <h2>{authorProfilePayload.authorName}</h2>
                     <p>{authorProfilePayload.institution}</p>
