@@ -1,0 +1,18 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.projects-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: 2fr 1fr;
+    padding: var(--spacing-md);
+}
+
+.current-working-projects {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}

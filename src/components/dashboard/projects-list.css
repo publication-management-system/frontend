@@ -1,0 +1,42 @@
+.my-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.projects-list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    font-size: var(--font-size-base);
+}
+
+.project-list-item svg {
+    cursor: pointer;
+    width: 32px !important;
+    height: 32px !important;
+    padding: var(--spacing-xs);
+    fill: var(--color-primary);;
+}
+
+.project-list-item svg:hover {
+    transform: scale(1.2);
+}
+
+.project-title {
+    font-weight: bold;
+}
+
+.project-desc {
+    color: #82878e;
+}
+
+.projects-list-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
