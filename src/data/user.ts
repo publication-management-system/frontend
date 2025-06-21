@@ -41,7 +41,9 @@ export interface InstitutionData {
 export interface Invitation {
     id: string,
     link: string,
-    wasTaken: boolean;
+    email: string,
+    createdAt: string;
+    acceptedAt?: string;
 }
 
 export interface InvitationData {

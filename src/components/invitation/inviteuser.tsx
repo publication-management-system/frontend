@@ -4,8 +4,14 @@ import {authenticatedClient} from "../../data/client.ts";
 import {getUserInfo} from "../../data/accesstokenutil.ts";
 import {Form} from "../form/form.tsx";
 import {Input} from "../input/input.tsx";
+import {Invitation} from "../../data/user.ts";
 
-export const InviteUser =() : React.JSX.Element => {
+interface InviteUserProps {
+    onSuccess: (invitation: Invitation) => void;
+    onError: (error: string) => void;
+}
+
+export const InviteUser = ({onSuccess, onError}: InviteUserProps) : React.JSX.Element => {
     const [email, setEmail] = useState("");
 
     const sendInvitation = async () => {
@@ -13,8 +19,8 @@ export const InviteUser =() : React.JSX.Element => {
 
         console.log(institutionId);
         await authenticatedClient.post("/api/invitations", {institutionId, email} )
-            .then(response => response.data)
-            .catch(err => console.log(err));
+            .then(() => onSuccess({createdAt: new Date().toDateString(), email: email, id: "", link: ""}))
+            .catch(err => onError(err));
     }
 
     return (

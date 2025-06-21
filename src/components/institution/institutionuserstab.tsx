@@ -1,7 +1,6 @@
 import {InstitutionData} from "../../data/user.ts";
 import React, {useEffect, useState} from "react";
 import {Card} from "../card/card.tsx";
-import {Button} from "../button/button.tsx";
 import {InstitutionUsersTable} from "./institutionuserstable.tsx";
 import {getUserInfo} from "../../data/accesstokenutil.ts";
 import {authenticatedClient} from "../../data/client.ts";
@@ -35,14 +34,6 @@ export const InstitutionUsersTab = (props: InstitutionUsersTabProps): React.JSX.
                 <Card className={"content institution-card"}>
                     <h1>{institutionDetails.institution?.name ?? ""}</h1>
                     <h2>{institutionDetails.institution?.address}</h2>
-                </Card>
-            </div>
-
-            <div className={"institution-page-row"}>
-                <Card className={"content"}>
-                    <div>
-                        <Button onClick={props.onModalOpen}>INVITE USERS</Button>
-                    </div>
                 </Card>
             </div>
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Toast, ToastSettings} from "../../../components/toast/toast.tsx";
 import {Modal, ModalSettings} from "../../../components/modal/modal.tsx";
 import {AuthenticatedLayout} from "../../../layouts/authenticatedlayout/authenticatedlayout.tsx";
@@ -8,6 +8,8 @@ import './institutionpage.css';
 import {Tab, Tabs} from "../../../components/tabs/tabs.tsx";
 import {InstitutionUsersTab} from "../../../components/institution/institutionuserstab.tsx";
 import {InstitutionInvitationTab} from "../../../components/institution/institutioninvitationtab.tsx";
+import {Invitation} from "../../../data/user.ts";
+import {authenticatedClient} from "../../../data/client.ts";
 
 
 export const InstitutionPage = (): React.JSX.Element => {
@@ -17,18 +19,41 @@ export const InstitutionPage = (): React.JSX.Element => {
         open: false,
         title: ""
     });
+    const [invitations, setInvitations] = useState<Invitation[]>([]);
+
+    const onInviteUser = async (invitation: Invitation): Promise<void> => {
+        setToastSettings({open: true, message: "Success sending invitation", type: "success"});
+        setModalSettings({...modalSettings, open: false});
+        setInvitations([...invitations, invitation]);
+    }
+
+    const onInviteUserError = async (error: string): Promise<void> => {
+        setToastSettings({open: true, message: error, type: "error"});
+        setModalSettings({...modalSettings, open: false});
+    }
 
     function openModalInviteUsers() {
         setModalSettings({
             open: true,
             title: 'Invite users to your institution',
-            bodyComponent: (<InviteUser/>)
+            bodyComponent: (<InviteUser onSuccess={onInviteUser} onError={onInviteUserError} />)
         });
     }
 
     const onInstUserError = (error: string) => {
         setToastSettings({...toastSettings, open: true, message: error, type: "error"});
     }
+
+    const fetchInvitations = async () => {
+        await authenticatedClient.get(`/api/invitations`)
+            .then(response => setInvitations(response.data))
+            .catch((error) => onInstUserError(error));
+    }
+
+    useEffect(() => {
+        fetchInvitations();
+    }, []);
+
 
     return (
         <>
@@ -40,7 +65,7 @@ export const InstitutionPage = (): React.JSX.Element => {
                             <InstitutionUsersTab onModalOpen={openModalInviteUsers} onError={onInstUserError}/>
                         </Tab>
                         <Tab label={'Invitations'}>
-                            <InstitutionInvitationTab onError={onInstUserError} />
+                            <InstitutionInvitationTab onModalOpen={openModalInviteUsers} invitations={invitations} />
                         </Tab>
                     </Tabs>
                 </div>

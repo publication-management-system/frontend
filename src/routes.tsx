@@ -10,6 +10,7 @@ import {InstitutionProfiling} from "./pages/app/institutionprofiling/institution
 import {InstitutionPage} from "./pages/app/institution/institutionpage.tsx";
 import {SessionPage} from "./pages/app/session/sessionpage.tsx";
 import {ProjectPage} from "./pages/app/projects/projectpage.tsx";
+import AcceptInvitationPage from "./pages/unauthenticated/acceptinvitation/acceptinvitationpage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
     {
         path: "/register",
         element: <RegisterPage/>,
+    },
+    {
+        path: "/invitation/:invitationId",
+        element: <AcceptInvitationPage />,
     },
     {
         element: <ProtectedRoutes />,
