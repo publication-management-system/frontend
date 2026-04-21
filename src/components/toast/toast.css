@@ -7,7 +7,6 @@
     min-width: 300px;
     min-height: 40px;
     z-index: 1000;
-    box-shadow: var(--shadow-md);
     background-color: white;
     animation: slideInFromRight 0.1s ease-out;
 }

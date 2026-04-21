@@ -4,7 +4,7 @@ nav {
     gap: var(--spacing-md);
     min-height: 88px;
     background-color: #FFFFFF;
-    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-stroke);
     align-items: center;
     justify-items: center;
     z-index: 9999;

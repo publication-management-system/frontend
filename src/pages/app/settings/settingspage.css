@@ -12,7 +12,7 @@
 
 .profile-card {
     flex: 1;
-    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-stroke);
 
     display: flex;
     flex-direction: row;

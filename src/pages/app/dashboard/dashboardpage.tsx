@@ -5,10 +5,17 @@ import {getUserInfo} from "../../../data/accesstokenutil.ts";
 import './dashboardpage.css'
 import {ProjectsList} from "../../../components/dashboard/projects-list.tsx";
 import {StatsGrid} from "../../../components/dashboard/stats-grid.tsx";
+import {useNavigate} from "react-router-dom";
 
 export const DashboardPage = (): React.ReactElement => {
 
     const {name, userId, institutionId} = getUserInfo();
+
+    const navigate = useNavigate();
+
+    if (!userId) {
+        navigate('/login');
+    }
 
     return (
         <AuthenticatedLayout>

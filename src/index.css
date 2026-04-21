@@ -2,11 +2,12 @@
     font-family: sans-serif;
     font-size: 1rem;
 
-    --color-primary: rgb(112, 37, 217); /*  */
+    --color-primary: rgb(112, 37, 217);
     --color-secondary: rgb(81, 118, 207);
     --color-accent: #551BA6;
-    --color-background: #fdfcfc;
+    --color-background: #FFFFFF;
     --color-text: #232b39;
+    --color-stroke: rgba(179, 182, 184, 0.5);
 
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
@@ -66,7 +67,7 @@ body {
 
 @media (min-width: 1200px) {
     .content {
-        width: 1280px;
+        width: 1360px;
     }
 }
 

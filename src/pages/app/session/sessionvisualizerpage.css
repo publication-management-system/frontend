@@ -1,0 +1,10 @@
+.session-graph-container {
+    flex: 1;
+    overflow: hidden;
+}
+
+.session-visualizer-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}

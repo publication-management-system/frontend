@@ -1,0 +1,37 @@
+.scraping-item-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 400px;
+}
+
+.scraping-item-list-container h3 {
+    display: flex;
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.scraping-item-list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.scraping-item-list-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-top: 1px solid var(--color-stroke);
+    padding: 0.5rem 0;
+    font-size: var(--font-size-sm);
+}
+
+.scraping-item-list-item-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.scraping-item-list-item-text {
+}

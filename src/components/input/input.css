@@ -28,7 +28,7 @@
 }
 
 .input-field input:focus{
-    border-color: var(--color-primary);
+    border-color: var(--color-stroke);
     outline: none;
     box-shadow: rgba(112, 37, 217, 0.3) 0 0 0 3px;
 }

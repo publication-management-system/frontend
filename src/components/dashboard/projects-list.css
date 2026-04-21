@@ -11,7 +11,7 @@
     background-color: #FFFFFF;
     padding: var(--spacing-md);
     border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-stroke);
     font-size: var(--font-size-base);
 }
 

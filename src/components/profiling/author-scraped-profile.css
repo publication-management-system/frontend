@@ -8,5 +8,5 @@
     border-radius: var(--border-radius-md);
     min-width: 200px;
     max-width: 400px;
-    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-stroke);
 }

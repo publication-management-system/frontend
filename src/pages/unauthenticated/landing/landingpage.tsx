@@ -5,10 +5,18 @@ import {Button} from "../../../components/button/button.tsx";
 import {LandingPageNavItems} from "../../../components/navigation/landingpage/landingpagenavitems.tsx";
 import {useNavigate} from "react-router-dom";
 import './landingpage.css'
+import {getUserInfo} from "../../../data/accesstokenutil.ts";
 
 export const LandingPage = (): React.JSX.Element => {
+    const {userId, institutionId} = getUserInfo();
+
+
 
     const navigate = useNavigate();
+
+    if (userId && institutionId) {
+        navigate('/app/dashboard')
+    }
 
     return (
         <LandingPageLayout>
