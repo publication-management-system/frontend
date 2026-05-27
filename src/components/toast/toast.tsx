@@ -1,20 +1,19 @@
-import React, {useEffect, useState} from "react";
-import './toast.css'
-import {HiXMark} from "react-icons/hi2";
+import React, { useEffect, useState } from "react";
+import { HiXMark } from "react-icons/hi2";
 
+import "./toast.css";
 
 export interface ToastProps {
-    message: string,
-    onToastClose: () => void,
-    open: boolean,
-    type: "success" | "info" | "error"
+    message: string;
+    onToastClose: () => void;
+    open: boolean;
+    type: "success" | "info" | "error";
 }
 
-
 export interface ToastSettings {
-    open: boolean,
-    type: "success" | "info" | "error"
-    message: string,
+    open: boolean;
+    type: "success" | "info" | "error";
+    message: string;
 }
 
 export const Toast = (props: ToastProps): React.JSX.Element => {
@@ -40,15 +39,22 @@ export const Toast = (props: ToastProps): React.JSX.Element => {
             closeToast();
         }, 3000);
 
-        return () => clearTimeout(timer);
+        return () => {
+            clearTimeout(timer);
+        };
     }, [props.open]);
 
-    return isVisible ? (<div className={`toast-container toast-${props.type} ${isExiting ? 'toast-exit' : 'toast-open'}`}
-                 onClick={closeToast}>
-                <div className="toast-controls">
-                    <p>{props.message}</p>
-                    <HiXMark/>
-                </div>
-            </div>)
-        : <></>
-}
+    return isVisible ? (
+        <div
+            className={`toast-container toast-${props.type} ${isExiting ? "toast-exit" : "toast-open"}`}
+            onClick={closeToast}
+        >
+            <div className="toast-controls">
+                <p>{props.message}</p>
+                <HiXMark />
+            </div>
+        </div>
+    ) : (
+        <></>
+    );
+};

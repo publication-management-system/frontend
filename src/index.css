@@ -2,24 +2,19 @@
     font-family: sans-serif;
     font-size: 1rem;
 
-    --color-primary: rgb(112, 37, 217);
-    --color-secondary: rgb(81, 118, 207);
-    --color-accent: #551BA6;
-    --color-background: #FFFFFF;
+    --color-primary: hsla(160, 16%, 36%, 1);
+    --color-primary-hover: hsla(160, 16%, 30%, 1);
+
+    --color-secondary: hsla(12, 72%, 67%, 1);
+    --color-secondary-hover: hsla(12, 72%, 60%, 1);
+
+    --color-accent: hsla(282, 42%, 66%, 1);
+    --color-accent-hover: hsla(282, 42%, 58%, 1);
+
+    --color-background: #fafafa;
+    --color-text-gray: hsl(240, 5.2%, 33.92%);
     --color-text: #232b39;
     --color-stroke: rgba(179, 182, 184, 0.5);
-
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
-
-    --font-size-sm: 0.75rem;
-    --font-size-base: 1rem;
-    --font-size-md: 1.15rem;
-    --font-size-lg: 1.25rem;
-    --font-size-xl: 2rem;
 
     --font-weight-normal: 400;
     --font-weight-bold: 700;
@@ -31,52 +26,161 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
     --shadow-md: rgba(0, 0, 0, 0.05) 0px 1px 4px;;
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+    --color-border: hsla(0, 0%, 94.12%, 80%);
+
+    --top-bar-height: 64px;
 }
 
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
-body {
-    background-color: var(--color-background);
+* {
     margin: 0;
 }
 
-.content {
-    margin: 0 auto;
-    width: 100%;
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    /*noinspection CssUnresolvedCustomProperty*/
+    font-family: var(--font-primary), sans-serif;
+    background: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
     max-width: 100%;
 }
 
-.header-logo {
-    letter-spacing: var(--spacing-md);
-    color: var(--color-primary);
+input, button, textarea, select {
+    font: inherit;
 }
 
-@media (min-width: 768px) {
-    .content {
-        width: 750px;
-    }
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
 }
 
-@media (min-width: 992px) {
-    .content {
-        width: 970px;
-    }
+p {
+    text-wrap: pretty;
 }
 
-@media (min-width: 1200px) {
-    .content {
-        width: 1360px;
-    }
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
 }
 
+a {
+    color: inherit;
+    /*noinspection CssUnresolvedCustomProperty*/
+    font-family: var(--font-primary), sans-serif;
+}
+
+.header-extra-small {
+    font-size: clamp(1.05rem, 0.921rem + 0.643vw, 1.5rem);
+    line-height: 1.33;
+    font-weight: 600;
+}
+
+.header-small {
+    font-size: clamp(1.375rem, 1.268rem + 0.536vw, 1.75rem);
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.header-medium {
+    font-size: clamp(1.625rem, 1.446rem + 0.893vw, 2.25rem);
+    line-height: 1.16;
+}
+
+.heading-large {
+    font-size: clamp(2rem, 1.714rem + 1.429vw, 3rem);
+    line-height: 1.125;
+    font-weight: bold;
+}
+
+.heading-extra-large {
+    font-size: clamp(3rem, 2.5rem + 2.5vw, 4.75rem);
+    line-height: 1.15;
+    font-weight: bold;
+}
+
+.body-text {
+    font-size: clamp(0.9375rem, 0.902rem + 0.179vw, 1.0625rem);
+    line-height: 1.5;
+}
+
+.body-small-text {
+    font-size: clamp(0.75rem, 0.714rem + 0.179vw, 0.875rem);
+    line-height: 1.35;
+}
+
+.paragraph {
+    font-size: clamp(1rem, 0.957rem + 0.214vw, 1.15rem);
+    line-height: 1.57;
+}
+
+.subtitle {
+    font-size: clamp(0.9rem, 0.864rem + 0.179vw, 1.025rem);
+    line-height: 1.58;
+    text-transform: uppercase;
+}
+
+.action {
+    font-size: clamp(0.9375rem, 0.888rem + 0.25vw, 1.1125rem);
+    line-height: 1.34;
+    font-weight: 600;
+}
+
+.action-small {
+    font-size: clamp(0.85rem, 0.813rem + 0.186vw, 0.98rem);
+    line-height: 1.51;
+    font-weight: 600;
+}
 
 .loading_bg_skeleton {
     animation: skeleton-loading 1s linear infinite alternate;
     color: transparent;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.page-margin-top {
+    margin-top: calc(32px + var(--top-bar-height));
+}
+
+.page-contents {
+    margin-inline: auto;
+    max-width: 1360px;
+    padding-inline: 16px;
+}
+
+.text-gray {
+    color: var(--color-text-gray);
+}
 
 @keyframes skeleton-loading {
     0% {

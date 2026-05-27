@@ -1,0 +1,26 @@
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.searchContainer button{
+    max-width: 128px;
+}
+
+.searchContainer textarea {
+    min-height: 60px;
+    max-height: 60px;
+}
+
+.searchActions {
+    display: flex;
+    gap: 32px;
+}
+
+.clearBtn {
+    background-color: var(--color-secondary);
+}
+.clearBtn:hover {
+    background-color: var(--color-secondary-hover);
+}

@@ -1,0 +1,33 @@
+.authorPreview {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    border: 1px solid var(--color-stroke);
+    background: white;
+    border-radius: 12px;
+    gap: 16px;
+    max-width: 480px
+}
+
+.documentsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.document {
+    display: flex;
+    justify-content: start;
+    gap: 8px;
+}
+
+.document p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.document svg {
+    width: 14px;
+    height: 14px;
+}

@@ -1,0 +1,7 @@
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    min-width: 320px;
+}

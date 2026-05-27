@@ -1,6 +1,6 @@
-export type DataSource = 'google_scholar' | 'dblp' | 'web_of_science' | 'scopus';
+export type DataSource = "google_scholar" | "dblp" | "web_of_science" | "scopus";
 
-export type EntityType = 'author' | 'document' | 'citation' | 'topic';
+export type EntityType = "author" | "document" | "citation" | "topic";
 
 export interface ScrapedEntity {
     id: string;

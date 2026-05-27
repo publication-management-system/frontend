@@ -1,0 +1,15 @@
+.menuLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 8px;
+}
+
+.menuLink:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}

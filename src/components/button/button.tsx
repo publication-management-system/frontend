@@ -1,26 +1,14 @@
+import clsx from "clsx";
 import React from "react";
-import './app-button.css'
 
-interface ButtonProps {
-    children?: React.ReactNode,
-    name?: string,
-    onClick?: () => void,
-    className?: string,
+import styles from "./button.module.css";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    name?: string;
 }
 
-export const Button = (props: ButtonProps): React.JSX.Element  => {
-
-    const handleClicked = () => {
-        if (props.onClick) {
-            props.onClick();
-        } else {
-            console.warn('unhandled click event');
-        }
-    }
-
-    return (
-        <button className={`app-button ${props.className || ''}`} onClick={handleClicked}>
-            {props.children}
-        </button>
-    )
-}
+export const Button = ({ className, children, ...props }: ButtonProps) => (
+    <button className={clsx(styles.appButton, className)} {...props}>
+        {children}
+    </button>
+);

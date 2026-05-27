@@ -1,0 +1,30 @@
+.textareaField {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.textareaField label {
+    display: block;
+    text-transform: capitalize;
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+}
+
+.textareaField textarea {
+    padding: 8px 16px;
+    font-size: clamp(0.9375rem, 0.902rem + 0.179vw, 1.0625rem);
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: #ffffff;
+    border: 1px solid var(--color-stroke);
+    border-radius: 12px;
+    outline: none;
+    box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 0 inset;
+    resize: vertical;
+}
+
+.textareaField textarea:focus {
+    border-color: var(--color-stroke);
+    outline: none;
+}

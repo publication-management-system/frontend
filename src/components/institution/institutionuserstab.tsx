@@ -1,9 +1,11 @@
-import {InstitutionData} from "../../data/user.ts";
-import React, {useEffect, useState} from "react";
-import {Card} from "../card/card.tsx";
-import {InstitutionUsersTable} from "./institutionuserstable.tsx";
-import {getUserInfo} from "../../data/accesstokenutil.ts";
-import {authenticatedClient} from "../../data/client.ts";
+import React, { useEffect, useState } from "react";
+
+import { getUserInfo } from "../../data/accesstokenutil.ts";
+import { authenticatedClient } from "../../data/client.ts";
+import type { InstitutionData } from "../../data/user.ts";
+import { Card } from "../card/card.tsx";
+
+import { InstitutionUsersTable } from "./institutionuserstable.tsx";
 
 interface InstitutionUsersTabProps {
     onModalOpen: () => void;
@@ -11,22 +13,22 @@ interface InstitutionUsersTabProps {
 }
 
 export const InstitutionUsersTab = (props: InstitutionUsersTabProps): React.JSX.Element => {
-
     const [institutionDetails, setInstitutionDetails] = useState<InstitutionData>({
         loadingInstitution: true,
-        institution: undefined
+        institution: undefined,
     });
 
     const loadInstitutionDetails = async (): Promise<void> => {
-        const instDetails = await authenticatedClient.get(`/api/institutions/${getUserInfo().institutionId}`)
-            .then(response => response.data);
+        const instDetails = await authenticatedClient
+            .get(`/api/institutions/${getUserInfo().institutionId}`)
+            .then((response) => response.data);
 
-        setInstitutionDetails({loadingInstitution: false, institution: instDetails});
-    }
+        setInstitutionDetails({ loadingInstitution: false, institution: instDetails });
+    };
 
     useEffect(() => {
         loadInstitutionDetails();
-    }, [])
+    }, []);
 
     return (
         <div className={"institution-tab-contents"}>
@@ -39,10 +41,12 @@ export const InstitutionUsersTab = (props: InstitutionUsersTabProps): React.JSX.
 
             <div className={"institution-page-row"}>
                 <div className={"content"}>
-                    <InstitutionUsersTable institutionId={getUserInfo()?.institutionId}
-                                           onError={props.onError}/>
+                    <InstitutionUsersTable
+                        institutionId={getUserInfo().institutionId}
+                        onError={props.onError}
+                    />
                 </div>
             </div>
         </div>
     );
-}
+};

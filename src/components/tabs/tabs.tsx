@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import './tabs.css';
+import React, { useState } from "react";
+
+import "./tabs.css";
 
 interface TabProps {
     label: string;
@@ -16,18 +17,24 @@ export function Tab(props: TabProps) {
 }
 
 export function Tabs(props: TabsProps) {
-
     const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-    const tabs = React.Children.toArray(props.children)
-        .filter((child) => React.isValidElement(child) && child.type === Tab);
+    const tabs = React.Children.toArray(props.children).filter(
+        (child) => React.isValidElement(child) && child.type === Tab,
+    );
 
     return (
         <div className="tabs-container">
             <div className="tab-buttons">
                 {tabs.map((tab, index) => (
-                    <button key={index} onClick={() => setActiveTabIndex(index)} className={`${index === activeTabIndex ? 'active' : ''}`}>
-                        <span>{tab?.props?.label ?? 'SSS'}</span>
+                    <button
+                        key={index}
+                        onClick={() => {
+                            setActiveTabIndex(index);
+                        }}
+                        className={index === activeTabIndex ? "active" : ""}
+                    >
+                        <span>{tab.props?.label ?? "SSS"}</span>
                     </button>
                 ))}
             </div>
@@ -36,5 +43,3 @@ export function Tabs(props: TabsProps) {
         </div>
     );
 }
-
-

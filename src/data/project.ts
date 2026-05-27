@@ -13,7 +13,7 @@ export interface PagedProject {
     pageNumber: number;
 }
 
-export type TaskState = 'ToDo' | 'InProgress' | 'Done' | 'Backlog';
+export type TaskState = "ToDo" | "InProgress" | "Done" | "Backlog";
 
 export interface Task {
     id: string;

@@ -1,0 +1,44 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.documentCard {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: start;
+    text-decoration: none;
+    border: 1px solid var(--color-stroke);
+    padding: 8px 16px;
+    border-radius: 12px;
+}
+
+.documentCard svg {
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.documentCard p,
+.documentCard h4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.documentCard p {
+    color: var(--color-text-gray);
+}
+
+.documentCard:hover {
+    background-color: var(--color-primary-hover);
+    color: white;
+}
+
+.documentCard:hover p {
+    color: white;
+}

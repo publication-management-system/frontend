@@ -1,0 +1,83 @@
+
+.topNavContainer {
+    min-height: 64px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: white;
+    padding: 8px 16px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.menuIcon {
+    min-width: 24px;
+    min-height: 24px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
+.menu:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.navLinks {
+    display: none;
+}
+
+.leftSide {
+    display: flex;
+    gap: 32px;
+}
+
+.drawerItems {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+}
+
+.drawerLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.drawerLinks a {
+    min-height: 48px;
+    border-radius: 8px;
+    padding: 0 16px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.drawerTitle {
+    padding: 16px;
+}
+
+@media (min-width: 768px) {
+    .navLinks {
+        display: flex;
+        gap: 16px;
+    }
+}
+

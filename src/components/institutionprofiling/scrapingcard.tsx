@@ -1,9 +1,11 @@
 import React from "react";
-import {Column, Table} from "../table/table.tsx";
-import {Button} from "../button/button.tsx";
-import {Card} from "../card/card.tsx";
-import {ScrapingSession} from "../../data/scraping.ts";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import type { ScrapingSession } from "../../data/scraping.ts";
+import { Button } from "../button/button.tsx";
+import { Card } from "../card/card.tsx";
+import type { Column } from "../table/table.tsx";
+import { Table } from "../table/table.tsx";
 
 interface ScrapingCardProps {
     institutionId: string;
@@ -26,9 +28,19 @@ export const ScrapingCard = (props: ScrapingCardProps): React.JSX.Element => {
             <div>
                 <Button onClick={props.onModalOpen}>SCRAPE AUTHOR</Button>
             </div>
-            <Table columns={columns} data={props.sessions} actions={(session) => (
-                <Button onClick={() => navigate(`/app/institution-profiling/sessions/${session.id}`)}>View</Button>
-            )}/>
+            <Table
+                columns={columns}
+                data={props.sessions}
+                actions={(session) => (
+                    <Button
+                        onClick={() =>
+                            navigate(`/app/institution-profiling/sessions/${session.id}`)
+                        }
+                    >
+                        View
+                    </Button>
+                )}
+            />
         </Card>
-    )
-}
+    );
+};

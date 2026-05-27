@@ -18,3 +18,15 @@ export interface ScrapingQueueItem {
     payload: string;
     scrapingLink: string;
 }
+
+export interface EnqueueScrapingRequestDto {
+    firstName: string;
+    lastName: string;
+    institutionId: string;
+    userId: string;
+    userName: string;
+}
+
+export interface ScrapingStatusResponseDto {
+    status: string;
+}

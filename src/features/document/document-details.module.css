@@ -1,0 +1,13 @@
+.documentDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 16px;
+}
+
+.docInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 32px;
+}

@@ -1,18 +1,19 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Toast, ToastSettings} from "../../../components/toast/toast";
-import {AuthenticatedNavigation} from "../../../components/navigation/authenticated/authenticatednavigation";
-import {authenticatedClient} from "../../../data/client";
-import {useParams} from "react-router-dom";
-import {GraphData} from "../../../data/scraping";
+import React, { useEffect, useRef, useState } from "react";
 import ForceGraph2D from "react-force-graph-2d";
+import { useParams } from "react-router-dom";
 
-import './sessionvisualizerpage.css';
+import type { ToastSettings } from "../../../components/toast/toast";
+import { Toast } from "../../../components/toast/toast";
+import { authenticatedClient } from "../../../data/client";
+import type { GraphData } from "../../../data/scraping";
+
+import "./sessionvisualizerpage.css";
 
 export const SessionVisualizerPage = (): React.JSX.Element => {
     const [toastSettings, setToastSettings] = useState<ToastSettings>({
         open: false,
-        message: '',
-        type: "success"
+        message: "",
+        type: "success",
     });
 
     const { sessionId, source } = useParams<{ sessionId: string; source: string }>();
@@ -23,20 +24,20 @@ export const SessionVisualizerPage = (): React.JSX.Element => {
     const typeColors: Record<string, string> = {
         AUTHOR: "#e63946",
         CITATION: "#2a9d8f",
-        DOCUMENT: "#457b9d"
+        DOCUMENT: "#457b9d",
     };
 
     const fetchGraphVisualizer = async () => {
         try {
             const response = await authenticatedClient.get(
-                `/api/scraped-entities/visualizer/${sessionId}?source=${source}`
+                `/api/scraped-entities/visualizer/${sessionId}?source=${source}`,
             );
             setGraphData(response.data);
         } catch (error: any) {
             setToastSettings({
                 open: true,
-                message: error?.message || 'Failed to load graph data.',
-                type: "error"
+                message: error?.message || "Failed to load graph data.",
+                type: "error",
             });
         }
     };
@@ -54,7 +55,6 @@ export const SessionVisualizerPage = (): React.JSX.Element => {
     return (
         <>
             <div className="session-visualizer-layout">
-                <AuthenticatedNavigation />
                 <div className="session-graph-container">
                     <ForceGraph2D
                         ref={graphRef}
@@ -65,7 +65,7 @@ export const SessionVisualizerPage = (): React.JSX.Element => {
                         linkWidth={2}
                         d3Force="charge"
                         d3ForceOptions={{
-                            strength: -800
+                            strength: -800,
                         }}
                         nodeCanvasObject={(node, ctx, globalScale) => {
                             const label = node.name || node.id;
@@ -76,7 +76,7 @@ export const SessionVisualizerPage = (): React.JSX.Element => {
                             const fontSize = 10 / globalScale;
 
                             ctx.beginPath();
-                            ctx.arc(node.x!, node.y!, radius, 0, 2 * Math.PI, false);
+                            ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false);
                             ctx.fillStyle = color;
                             ctx.fill();
 
@@ -86,13 +86,13 @@ export const SessionVisualizerPage = (): React.JSX.Element => {
                             ctx.fillStyle = "#ffffff";
 
                             const lines = [
-                                label.length > 16 ? label.slice(0, 14) + "…" : label,
-                                type.toLowerCase()
-                            ];
+                                label.length > 16 ? `${label.slice(0, 14)}…` : label,
+                                type.toLowerCase(),
+                            ]
 
                             lines.forEach((text, i) => {
                                 const yOffset = (i - 0.5) * fontSize * 1.6;
-                                ctx.fillText(text, node.x!, node.y! + yOffset);
+                                ctx.fillText(text, node.x, node.y! + yOffset);
                             });
                         }}
                         onEngineStop={() => {
@@ -107,7 +107,9 @@ export const SessionVisualizerPage = (): React.JSX.Element => {
 
             <Toast
                 open={toastSettings.open}
-                onToastClose={() => setToastSettings({ ...toastSettings, open: false })}
+                onToastClose={() => {
+                    setToastSettings({ ...toastSettings, open: false });
+                }}
                 message={toastSettings.message}
                 type={toastSettings.type}
             />
