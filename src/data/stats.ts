@@ -22,9 +22,15 @@ export interface CitationsByYear {
 
 export interface ScrapingStatsDto {
     lastTenMinutes: ScrapingItemByMinute[];
+    scrapingCountsByProvider: ScrapingCountsByProvider[];
 }
 
 export interface ScrapingItemByMinute {
     minute: string;
+    count: number;
+}
+
+export interface ScrapingCountsByProvider {
+    provider: string;
     count: number;
 }

@@ -4,6 +4,7 @@ import { getUserInfo } from "../../data/accesstokenutil";
 import type { ScrapingStatsDto } from "../../data/stats";
 
 import { ScrapingActivityStats } from "./stats/scraping-activity-stats";
+import { ScrapingCountsByProviderStats } from "./stats/scraping-counts-by-provider";
 import { getScrapingStats } from "./api";
 
 import styles from "./admin-panel-stats.module.css";
@@ -41,6 +42,13 @@ export const AdminPanelStats = (): React.JSX.Element => {
     }, []);
 
     return (
-        <div className={styles.statsContainer}>{stats && <ScrapingActivityStats stats={stats.lastTenMinutes} />}</div>
+        <div className={styles.statsContainer}>
+            {stats && (
+                <>
+                    <ScrapingCountsByProviderStats stats={stats.scrapingCountsByProvider} />
+                    <ScrapingActivityStats stats={stats.lastTenMinutes} />{" "}
+                </>
+            )}
+        </div>
     );
 };

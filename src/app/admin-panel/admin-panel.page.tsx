@@ -4,6 +4,7 @@ import React from "react";
 import NavigationBar from "../../components/navigation/navigation-bar.tsx";
 import { AdminPanelActions } from "../../features/admin-panel/admin-panel-actions";
 import { AdminPanelStats } from "../../features/admin-panel/admin-panel-stats";
+import { FailedItemsList } from "../../features/admin-panel/failed-items-list";
 
 import styles from "./admin-panel.module.css";
 
@@ -20,6 +21,8 @@ export const AdminPanelPage = (): React.JSX.Element => {
                 <AdminPanelActions />
 
                 <AdminPanelStats />
+
+                <FailedItemsList />
             </section>
         </main>
     );

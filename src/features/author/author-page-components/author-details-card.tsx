@@ -21,6 +21,9 @@ export const AuthorDetailsCard = ({ author }: AuthorDetailsCardProps): React.JSX
                 <p className={"body-text"}>
                     <b>Topics</b> {author.topics}
                 </p>
+                <p className={"body-text"}>
+                    <b>HIndex</b> {author.hIndex} <b>I10Index</b> {author.i10Index}
+                </p>
             </div>
         </div>
     );

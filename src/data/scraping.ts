@@ -30,3 +30,10 @@ export interface EnqueueScrapingRequestDto {
 export interface ScrapingStatusResponseDto {
     status: string;
 }
+
+export interface ScrapingFailedItemDto {
+    id: string;
+    type: string;
+    dataSource: string;
+    details: string;
+}

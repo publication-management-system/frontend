@@ -13,4 +13,6 @@ export interface AuthorDetailsDto {
     internalRefId: string;
     imageUrl: string;
     topics: string;
+    hindex: string;
+    i10Index: string;
 }

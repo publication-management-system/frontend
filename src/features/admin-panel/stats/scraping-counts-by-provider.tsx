@@ -1,29 +1,23 @@
 import { CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Tooltip } from "chart.js";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
-import type { ScrapingItemByMinute } from "../../../data/stats";
+import type { ScrapingCountsByProvider } from "../../../data/stats";
 
 import styles from "./scraping-stats.module.css";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
-
 interface Props {
-    stats: ScrapingItemByMinute[];
+    stats: ScrapingCountsByProvider[];
 }
 
-export const ScrapingActivityStats = ({ stats }: Props): React.JSX.Element => {
-    const labels = stats.map((s) =>
-        new Date(s.minute).toLocaleTimeString([], {
-            hour: "2-digit",
-            minute: "2-digit",
-        }),
-    );
+export const ScrapingCountsByProviderStats = ({ stats }: Props): React.JSX.Element => {
+    const labels = stats.map((s) => s.provider);
 
     const data = {
         labels,
         datasets: [
             {
-                label: "Scraped per minute",
+                label: "Scraped by provider",
                 data: stats.map((s) => s.count),
                 borderColor: "hsla(12, 72%, 67%, 1)",
                 backgroundColor: "hsla(12, 72%, 60%, 0.2)",
@@ -56,10 +50,8 @@ export const ScrapingActivityStats = ({ stats }: Props): React.JSX.Element => {
 
     return (
         <div className={styles.statsContainer}>
-            <h3 className={"header-extra-small"}>
-                Scraping activity <span className={"text-gray"}>(last 10 minutes)</span>
-            </h3>
-            <Line data={data} options={options} />
+            <h3 className={"header-extra-small"}>Data by provider</h3>
+            <Bar data={data} options={options} />
         </div>
     );
 };

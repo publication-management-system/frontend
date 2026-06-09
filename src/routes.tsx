@@ -6,13 +6,13 @@ import { AuthorsPage } from "./app/authors/authors-page";
 import { DocumentPage } from "./app/documents/document-page";
 import { LandingPage } from "./app/landing/landing-page.tsx";
 import { LoginPage } from "./app/login/login-page";
+import { LogoutPage } from "./app/logout/logoutpage.tsx";
 import { NotFoundPage } from "./app/not-found/not-found-page";
 import { RegisterPage } from "./app/register/register-page";
 import { VisualizePage } from "./app/visualize/visualize-page";
 import { ProtectedRoutes } from "./components/protectedRoutes.tsx";
 import { InstitutionPage } from "./pages/app/institution/institutionpage.tsx";
 import { InstitutionProfiling } from "./pages/app/institutionprofiling/institutionprofiling.tsx";
-import { LogoutPage } from "./pages/app/logout/logoutpage.tsx";
 import { ProjectPage } from "./pages/app/projects/projectpage.tsx";
 import { SessionPage } from "./pages/app/session/sessionpage.tsx";
 
@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
                 element: <ProjectPage />,
             },
             {
-                path: "/app/logout",
+                path: "/logout",
                 element: <LogoutPage />,
             },
         ],

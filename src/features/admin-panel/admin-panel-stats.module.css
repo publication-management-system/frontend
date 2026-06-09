@@ -1,6 +1,7 @@
 .statsContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: stretch;
-    gap: 16px;
+    flex-wrap: wrap;
+    gap: 64px;
 }
