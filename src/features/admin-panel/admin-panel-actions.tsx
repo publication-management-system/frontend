@@ -6,7 +6,7 @@ import { Input } from "../../components/input/input";
 import { getUserInfo } from "../../data/accesstokenutil";
 import type { EnqueueScrapingRequestDto } from "../../data/scraping";
 
-import { enqueueAuthorForScraping } from "./api";
+import { downloadGraphData, enqueueAuthorForScraping } from "./api";
 
 import styles from "./admin-panel-actions.module.css";
 
@@ -28,6 +28,10 @@ export const AdminPanelActions = (): React.JSX.Element => {
         });
     };
 
+    const downloadGephi = async () => {
+        await downloadGraphData();
+    };
+
     return (
         <div className={styles.actionsContainer}>
             <h3>Enqueue new scraping</h3>
@@ -39,6 +43,10 @@ export const AdminPanelActions = (): React.JSX.Element => {
                 <Input hidden {...register("userName")} />
                 <Button type={"submit"}>Run</Button>
             </form>
+
+            <Button className={styles.downloadButton} onClick={downloadGephi}>
+                Download Data
+            </Button>
         </div>
     );
 };

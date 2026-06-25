@@ -25,19 +25,6 @@ export interface UpdatePassword {
     confirmPassword: string;
 }
 
-export interface Institution {
-    id: string;
-    address: string;
-    email: string;
-    name: string;
-    phone_number: string;
-}
-
-export interface InstitutionData {
-    institution?: Institution;
-    loadingInstitution: boolean;
-}
-
 export interface Invitation {
     id: string;
     link: string;
@@ -66,4 +53,13 @@ export interface RegisterData {
 export interface RegisterResponse {
     userId: string;
     institutionId: string;
+}
+
+export interface AcceptInvitationDto {
+    emailAddress: string;
+    invitationId: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+    confirmPassword: string;
 }

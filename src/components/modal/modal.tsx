@@ -1,7 +1,8 @@
+import clsx from "clsx";
 import React from "react";
 import { HiXMark } from "react-icons/hi2";
 
-import "./modal.css";
+import styles from "./modal.module.css";
 
 interface ModalProps {
     children?: React.ReactNode;
@@ -19,13 +20,13 @@ export interface ModalSettings {
 
 export const Modal = (props: ModalProps): React.JSX.Element => {
     return (
-        <div className={`modal ${props.open ? "modal-open" : "modal-close"}`}>
-            <div className={"modal-content"}>
-                <div className={"modal-header"}>
+        <div className={clsx(styles.modal, props.open ? styles.modalOpen : styles.modalClose)}>
+            <div className={styles.modalContent}>
+                <div className={styles.modalHeader}>
                     <p>{props.title ?? ""}</p>
                     <HiXMark onClick={props.onClose} />
                 </div>
-                <div className={"modal-body"}>{props.children}</div>
+                <div className={styles.modalBody}>{props.children}</div>
             </div>
         </div>
     );

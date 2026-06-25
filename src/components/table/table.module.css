@@ -1,0 +1,58 @@
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dataTable th,
+.dataTable td {
+    padding: 16px;
+    border-left: 1px solid #e1e4e8;
+    border-bottom: 1px solid #e1e4e8;
+    text-align: left;
+}
+
+.dataTable th:last-child,
+.dataTable td:last-child {
+    padding: 16px;
+    border-right: 1px solid #e1e4e8;
+    border-right: 1px solid #e1e4e8;
+    text-align: left;
+}
+
+.dataTable thead {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.dataTable tbody tr:nth-child(even) {
+    background-color: #fffbfb;
+}
+
+.dataTable tbody tr:hover {
+    background-color: #faf6f6;
+}
+
+.dataTable thead th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.dataTable thead th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.dataTable tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.dataTable tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}

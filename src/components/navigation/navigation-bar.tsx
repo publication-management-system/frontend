@@ -1,7 +1,14 @@
 import clsx from "clsx";
 import React, { useState } from "react";
 import { HiLogout } from "react-icons/hi";
-import { HiBars3, HiOutlineAcademicCap, HiOutlineBolt, HiOutlineHome, HiOutlineUserCircle } from "react-icons/hi2";
+import {
+    HiBars3,
+    HiOutlineAcademicCap,
+    HiOutlineBolt,
+    HiOutlineBuildingLibrary,
+    HiOutlineHome,
+    HiOutlineUserCircle,
+} from "react-icons/hi2";
 
 import { getUserInfo } from "../../data/accesstokenutil";
 import Drawer from "../drawer/drawer.tsx";
@@ -30,6 +37,13 @@ export default function NavigationBar(): React.JSX.Element {
                         <MenuLink href="/visualize" icon={<HiOutlineBolt />} label={"Visualize"} />
                         {userId && institutionId && (
                             <MenuLink href="/admin-panel" icon={<HiOutlineUserCircle />} label={"Administrator"} />
+                        )}
+                        {userId && institutionId && (
+                            <MenuLink
+                                href="/institution-config"
+                                icon={<HiOutlineBuildingLibrary />}
+                                label={"Your Institution Configuration"}
+                            />
                         )}
                         {userId && institutionId && <MenuLink href="/logout" icon={<HiLogout />} label={"Log out"} />}
                         {!userId && <MenuLink href="/login" icon={<HiOutlineUserCircle />} label={"Administrator"} />}

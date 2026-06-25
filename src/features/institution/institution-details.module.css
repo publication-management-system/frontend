@@ -1,0 +1,16 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 16px;
+    border: 1px solid var(--color-stroke);
+    border-radius: 8px;
+}

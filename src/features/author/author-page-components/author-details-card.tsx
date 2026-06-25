@@ -22,7 +22,7 @@ export const AuthorDetailsCard = ({ author }: AuthorDetailsCardProps): React.JSX
                     <b>Topics</b> {author.topics}
                 </p>
                 <p className={"body-text"}>
-                    <b>HIndex</b> {author.hIndex} <b>I10Index</b> {author.i10Index}
+                    <b>HIndex</b> {author.hindex} <b>I10Index</b> {author.i10Index}
                 </p>
             </div>
         </div>

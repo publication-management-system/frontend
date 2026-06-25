@@ -1,7 +1,8 @@
+import clsx from "clsx";
 import React, { useEffect, useState } from "react";
 import { HiXMark } from "react-icons/hi2";
 
-import "./toast.css";
+import styles from "./toast.module.css";
 
 export interface ToastProps {
     message: string;
@@ -37,7 +38,7 @@ export const Toast = (props: ToastProps): React.JSX.Element => {
         const timer = setTimeout(() => {
             setIsExiting(true);
             closeToast();
-        }, 3000);
+        }, 1500);
 
         return () => {
             clearTimeout(timer);
@@ -46,10 +47,14 @@ export const Toast = (props: ToastProps): React.JSX.Element => {
 
     return isVisible ? (
         <div
-            className={`toast-container toast-${props.type} ${isExiting ? "toast-exit" : "toast-open"}`}
+            className={clsx(
+                styles.toastContainer,
+                styles[`toast-${props.type}`],
+                styles[`toast-${isExiting ? "exit" : "open"}`],
+            )}
             onClick={closeToast}
         >
-            <div className="toast-controls">
+            <div className={styles.toastControls}>
                 <p>{props.message}</p>
                 <HiXMark />
             </div>

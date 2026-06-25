@@ -21,6 +21,25 @@ export const enqueueAuthorForScraping = async (req: EnqueueScrapingRequestDto) =
     return response.data;
 };
 
+export const downloadGraphData = async (): Promise<void> => {
+    const response = await client.get("/api/public/visualize/download", {
+        responseType: "blob",
+    });
+
+    const disposition = response.headers["content-disposition"];
+    const fileName = disposition?.match(/filename="?([^"]+)"?/)?.[1] ?? "graph.gexf";
+    const url = window.URL.createObjectURL(response.data);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+
+    document.body.appendChild(link);
+    link.click();
+
+    link.remove();
+    window.URL.revokeObjectURL(url);
+};
+
 export const getFailedItems = async () => {
     const resp = await authenticatedClient.get<ScrapingFailedItemDto[]>("/api/scraping/failed-items");
     return resp.data;

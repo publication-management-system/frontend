@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./table.css";
+import styles from "./table.module.css";
 
 export interface Column<T> {
     header: string;
@@ -15,8 +15,8 @@ interface TableProps<T> {
 
 export const Table = <T extends object>(props: TableProps<T>): React.JSX.Element => {
     return (
-        <div className="table-wrapper">
-            <table className="data-table">
+        <div className={styles.tableWrapper}>
+            <table className={styles.dataTable}>
                 <thead>
                     <tr>
                         {props.columns.map((col) => (

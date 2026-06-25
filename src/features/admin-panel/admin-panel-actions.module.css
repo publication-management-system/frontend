@@ -10,3 +10,7 @@
     align-items: center;
     gap: 16px;
 }
+
+.downloadButton {
+    max-width: 300px;
+}
