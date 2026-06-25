@@ -1,0 +1,23 @@
+.editorContainer {
+    border: 1px solid var(--color-stroke);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.editorContainer :global(.ql-toolbar.ql-snow) {
+    border: none;
+    border-bottom: 1px solid var(--color-stroke);
+    background: #fafafa;
+}
+
+.editorContainer :global(.ql-container.ql-snow) {
+    border: none;
+    min-height: 700px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.editorContainer :global(.ql-editor) {
+    min-height: 700px;
+}

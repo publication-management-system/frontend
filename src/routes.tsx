@@ -9,13 +9,13 @@ import { LandingPage } from "./app/landing/landing-page.tsx";
 import { LoginPage } from "./app/login/login-page";
 import { LogoutPage } from "./app/logout/logoutpage.tsx";
 import { NotFoundPage } from "./app/not-found/not-found-page";
+import { ProjectPage } from "./app/projects/project-page";
+import { ProjectsPage } from "./app/projects/projects-page";
+import TaskPage from "./app/projects/task-page";
 import { InvitationRegisterPage } from "./app/register/invitation-register-page";
 import { RegisterPage } from "./app/register/register-page";
 import { VisualizePage } from "./app/visualize/visualize-page";
 import { ProtectedRoutes } from "./components/protectedRoutes.tsx";
-import { InstitutionProfiling } from "./pages/app/institutionprofiling/institutionprofiling.tsx";
-import { ProjectPage } from "./pages/app/projects/projectpage.tsx";
-import { SessionPage } from "./pages/app/session/sessionpage.tsx";
 
 export const router = createBrowserRouter([
     {
@@ -66,16 +66,16 @@ export const router = createBrowserRouter([
                 element: <AdminPanelPage />,
             },
             {
-                path: "/app/institution-profiling",
-                element: <InstitutionProfiling />,
-            },
-            {
-                path: "/app/institution-profiling/sessions/:sessionId",
-                element: <SessionPage />,
-            },
-            {
-                path: "/app/institution-profiling/projects/:projectId",
+                path: "/projects/:projectId",
                 element: <ProjectPage />,
+            },
+            {
+                path: "/projects/:projectId/tasks/:taskId",
+                element: <TaskPage />,
+            },
+            {
+                path: "/projects",
+                element: <ProjectsPage />,
             },
             {
                 path: "/logout",

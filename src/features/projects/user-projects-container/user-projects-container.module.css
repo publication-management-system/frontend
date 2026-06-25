@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+.projectLineContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.projectLine {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    padding-block: 32px;
+    border-top: 1px solid var(--color-stroke);
+    text-decoration: none;
+}
+
+.projectLine:hover {
+    background-color: var(--color-stroke);
+}

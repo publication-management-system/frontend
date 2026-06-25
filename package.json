@@ -23,6 +23,8 @@
     "graphology-layout-forceatlas2": "^0.10.1",
     "graphology-layout-noverlap": "^0.4.2",
     "jwt-decode": "^4.0.0",
+    "quill": "^2.0.3",
+    "quilljs-markdown": "^1.2.0",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.0.0",

@@ -5,6 +5,7 @@ import {
     HiBars3,
     HiOutlineAcademicCap,
     HiOutlineBolt,
+    HiOutlineBriefcase,
     HiOutlineBuildingLibrary,
     HiOutlineHome,
     HiOutlineUserCircle,
@@ -44,6 +45,9 @@ export default function NavigationBar(): React.JSX.Element {
                                 icon={<HiOutlineBuildingLibrary />}
                                 label={"Your Institution Configuration"}
                             />
+                        )}
+                        {userId && institutionId && (
+                            <MenuLink href="/projects" icon={<HiOutlineBriefcase />} label={"Your Works"} />
                         )}
                         {userId && institutionId && <MenuLink href="/logout" icon={<HiLogout />} label={"Log out"} />}
                         {!userId && <MenuLink href="/login" icon={<HiOutlineUserCircle />} label={"Administrator"} />}
